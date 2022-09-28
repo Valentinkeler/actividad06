@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.txtNroReceta = new System.Windows.Forms.Label();
+            this.lblProxReceta = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -37,23 +37,23 @@
             this.txtCheff = new System.Windows.Forms.TextBox();
             this.cboIngredientes = new System.Windows.Forms.ComboBox();
             this.dgvIngredientes = new System.Windows.Forms.DataGridView();
+            this.colngrediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
-            this.colngrediente = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colUnidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtTipoReceta = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngredientes)).BeginInit();
             this.SuspendLayout();
             // 
-            // txtNroReceta
+            // lblProxReceta
             // 
-            this.txtNroReceta.AutoSize = true;
-            this.txtNroReceta.Location = new System.Drawing.Point(86, 27);
-            this.txtNroReceta.Name = "txtNroReceta";
-            this.txtNroReceta.Size = new System.Drawing.Size(55, 13);
-            this.txtNroReceta.TabIndex = 0;
-            this.txtNroReceta.Text = "Receta #:";
+            this.lblProxReceta.AutoSize = true;
+            this.lblProxReceta.Location = new System.Drawing.Point(86, 27);
+            this.lblProxReceta.Name = "lblProxReceta";
+            this.lblProxReceta.Size = new System.Drawing.Size(55, 13);
+            this.lblProxReceta.TabIndex = 0;
+            this.lblProxReceta.Text = "Receta #:";
             // 
             // txtNombre
             // 
@@ -125,6 +125,18 @@
             this.dgvIngredientes.Size = new System.Drawing.Size(504, 165);
             this.dgvIngredientes.TabIndex = 12;
             // 
+            // colngrediente
+            // 
+            this.colngrediente.HeaderText = "Ingrediente";
+            this.colngrediente.Name = "colngrediente";
+            this.colngrediente.ReadOnly = true;
+            // 
+            // colUnidad
+            // 
+            this.colUnidad.HeaderText = "unidad";
+            this.colUnidad.Name = "colUnidad";
+            this.colUnidad.ReadOnly = true;
+            // 
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(210, 490);
@@ -155,18 +167,6 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
-            // colngrediente
-            // 
-            this.colngrediente.HeaderText = "Ingrediente";
-            this.colngrediente.Name = "colngrediente";
-            this.colngrediente.ReadOnly = true;
-            // 
-            // colUnidad
-            // 
-            this.colUnidad.HeaderText = "unidad";
-            this.colUnidad.Name = "colUnidad";
-            this.colUnidad.ReadOnly = true;
-            // 
             // txtTipoReceta
             // 
             this.txtTipoReceta.Location = new System.Drawing.Point(99, 157);
@@ -191,7 +191,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtNombre);
-            this.Controls.Add(this.txtNroReceta);
+            this.Controls.Add(this.lblProxReceta);
             this.Name = "frmNuevaReceta";
             this.Text = "frmNuevaReceta";
             this.Load += new System.EventHandler(this.frmNuevaReceta_Load);
@@ -203,7 +203,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Label txtNroReceta;
+        private System.Windows.Forms.Label lblProxReceta;
         private System.Windows.Forms.TextBox txtNombre;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;

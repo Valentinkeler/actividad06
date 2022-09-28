@@ -1,4 +1,5 @@
 ﻿using RecetasSLN.presentación;
+using RecetasSLN.servicios;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -17,7 +18,7 @@ namespace RecetasSLN
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmNuevaReceta());
+            Application.Run(new frmNuevaReceta(new factoryImp()));
         }
     }
 }

@@ -10,7 +10,9 @@ namespace RecetasSLN.datos
 {
     internal interface IrecetasDao
     {
-        DataTable consultarSQL(string SP);
+        DataTable consultarSQL();
         bool MaestroDetalle(receta receta);
+        List<receta> consultaParametro(int  tipoReceta,string   nombre);
+        int proxReceta();
     }
 }

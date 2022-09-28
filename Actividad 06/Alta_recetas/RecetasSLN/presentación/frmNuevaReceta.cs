@@ -28,11 +28,17 @@ namespace RecetasSLN.presentación
         {
             cargarCombo();
             limpiar();
+            proximaReceta();
+        }
+
+        private void proximaReceta()
+        {
+            lblProxReceta.Text += servicio.proxReceta();
         }
 
         private void cargarCombo()
         {
-           DataTable tabla = servicio.consultarSQL("SP_CONSULTAR_INGREDIENTES");
+           DataTable tabla = servicio.consultarSQL();
            cboIngredientes.DataSource = tabla;
             cboIngredientes.DisplayMember = tabla.Columns[1].ColumnName;
             cboIngredientes.ValueMember = tabla.Columns[0].ColumnName;

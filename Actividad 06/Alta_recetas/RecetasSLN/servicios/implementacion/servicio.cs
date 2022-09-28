@@ -17,13 +17,23 @@ namespace RecetasSLN.servicios
             Dao = new recetasDao();
         }
 
-        public  DataTable consultarSQL(string SP)
+        public List<receta> consultaParametro(int tipoReceta, string nombre)
         {
-            return Dao.consultarSQL(SP);
+            return Dao.consultaParametro(tipoReceta, nombre);
+        }
+
+        public  DataTable consultarSQL()
+        {
+            return Dao.consultarSQL();
         }
         public  bool maestroDetalle(receta receta)
         {
             return Dao.MaestroDetalle(receta);
+        }
+
+        public int proxReceta()
+        {
+            return Dao.proxReceta();
         }
     }
 }

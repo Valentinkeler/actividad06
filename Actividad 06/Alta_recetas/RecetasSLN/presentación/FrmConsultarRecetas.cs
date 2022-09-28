@@ -1,4 +1,6 @@
-﻿using System;
+﻿using RecetasSLN.dominio;
+using RecetasSLN.servicios;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,17 +14,28 @@ namespace RecetasSLN.presentación
 {
     public partial class FrmConsultarRecetas : Form
     {
-        public FrmConsultarRecetas()
+        Iservicio servicio;
+
+
+        public FrmConsultarRecetas(factory fabrica)
         {
+            servicio = fabrica.crearServicio();
             InitializeComponent();
+        }
+        
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
+            dgvRecetas.Rows.Clear();
+            List<receta> lstRecetas = servicio.consultaParametro(cboTipoReceta.TabIndex, txtNombre.Text);
+
+            foreach (receta item in lstRecetas)
+            {
+                dgvRecetas.Rows.Add(new object[] { item.nombre,item.tipoReceta,item.cheff});
+            }
+
         }
 
         private void groupBox2_Enter(object sender, EventArgs e)
-        {
-
-        }
-
-        private void FrmConsultarRecetas_Load(object sender, EventArgs e)
         {
 
         }

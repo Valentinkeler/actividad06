@@ -49,6 +49,7 @@
     <Compile Include="datos\HelperDao.cs" />
     <Compile Include="datos\interfaz\IrecetasDao.cs" />
     <Compile Include="datos\implementacion\recetasDao.cs" />
+    <Compile Include="datos\parametros.cs" />
     <Compile Include="dominio\detalleReceta.cs" />
     <Compile Include="dominio\ingreciente.cs" />
     <Compile Include="dominio\receta.cs" />

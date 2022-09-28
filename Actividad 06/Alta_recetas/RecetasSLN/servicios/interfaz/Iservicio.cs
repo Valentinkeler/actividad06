@@ -10,7 +10,9 @@ namespace RecetasSLN.servicios
 {
     internal interface Iservicio
     {
-        DataTable consultarSQL(string SP);
+        DataTable consultarSQL();
         bool maestroDetalle(receta receta);
+        List<receta> consultaParametro(int tipoReceta,string nombre);
+        int proxReceta();
     }
 }

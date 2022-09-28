@@ -38,6 +38,38 @@ namespace RecetasSLN.datos
         {
             return this.conexion;
         }
+        public  DataTable consultaParametro(string  SP,List<parametros> parametro)
+        {
+            SqlCommand comando = new SqlCommand(SP,conexion);
+            conexion.Open();
+            comando.CommandType= CommandType.StoredProcedure;
+
+            if (parametro==null)
+            {
+                foreach (parametros oparametro in parametro)
+                {
+                    comando.Parameters.AddWithValue(oparametro.Clave, oparametro.valor);
+                }
+            }
+            DataTable tabla = new DataTable();
+            tabla.Load(comando.ExecuteReader());
+
+            conexion.Close();
+
+            return  tabla;
+        }
+        public int proximaReceta(string SP)
+        {
+            SqlCommand comando = new SqlCommand(SP, conexion);
+            conexion.Open();
+            comando.CommandType = CommandType.StoredProcedure;
+
+            int prox = comando.ExecuteNonQuery();
+
+            conexion.Close();
+            return prox;
+        }
+
     }
 }
 

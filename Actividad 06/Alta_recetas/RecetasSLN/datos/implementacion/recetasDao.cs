@@ -11,9 +11,31 @@ namespace RecetasSLN.datos
 {
     internal class recetasDao:IrecetasDao
     {
-        public  DataTable consultarSQL(string SP)
+        public List<receta> consultaParametro(int tipoReceta, string nombre)
         {
-            return HelperDao.obtenerInstancia().consultarSQL(SP);     
+            List<receta> recetas = new List<receta>();
+            List<parametros>  parametros=new List<parametros>();
+            parametros.Add(new parametros("@tipoReceta", tipoReceta));
+            parametros.Add(new parametros("@nombre", nombre));
+
+            DataTable tabla = HelperDao.obtenerInstancia().consultaParametro("SP_consultar_receta", parametros);
+
+            foreach (DataRow row in tabla.Rows)
+            {
+                receta oReceta = new receta();
+                oReceta.recetaNro =Convert.ToInt32(row["id_receta"]);
+                oReceta.nombre = row["nombre"].ToString();
+                oReceta.cheff = row["cheff"].ToString();
+                oReceta.tipoReceta = Convert.ToInt32(row["tipo_receta"]);
+                recetas.Add(oReceta);
+            }
+
+            return recetas;
+        }
+
+        public  DataTable consultarSQL()
+        {
+            return HelperDao.obtenerInstancia().consultarSQL("SP_CONSULTAR_INGREDIENTES");     
         }
 
         public bool MaestroDetalle(receta receta)
@@ -67,6 +89,11 @@ namespace RecetasSLN.datos
             }
 
             return ok;
+        }
+
+        public int proxReceta()
+        {
+            return HelperDao.obtenerInstancia().proximaReceta("ProximaReceta");
         }
     }
 }
